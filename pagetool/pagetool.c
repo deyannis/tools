@@ -1,3 +1,10 @@
+/*-
+ *	pagetool.c
+ *	Dimitris Deyannis
+ *	d.deyannis@gmail.com
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -50,24 +57,24 @@ main(int argc, char **argv)
 }
 
 unsigned int
-addr_to_uint(char * s)
+addr_to_uint(char *s)
 {
 	unsigned int result = 0;
 	int c ;
 
-	if ('0' == *s && 'x' == *(s+1))
-		s+=2;
+	if(('0' == *s) && ('x' == *(s + 1)))
+		s += 2;
 
-	while (*s)
+	while(*s)
 		{
 		result = result << 4;
 
-		if (c = (*s - '0'), (c >= 0 && c <= 9))
-			result|=c;
-		else if (c = (*s - 'A'), (c >= 0 && c <= 5))
-			result|=(c + 10);
-		else if (c = (*s - 'a'), (c >= 0 && c <= 5))
-			result|=(c + 10);
+		if(c = (*s - '0'), ((c >= 0) && (c <= 9)))
+			result |= c;
+		else if(c = (*s - 'A'), ((c >= 0) && (c <= 5)))
+			result |= (c + 10);
+		else if(c = (*s - 'a'), ((c >= 0) && (c <= 5)))
+			result |= (c + 10);
 		else break;
 
 		++s;
