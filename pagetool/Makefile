@@ -1,5 +1,5 @@
 all: pagetool.c
-	gcc -o ex_pagetool pagetool.c
+	gcc -Wall -pedantic -o pagetool pagetool.c
 
 clean:
-	rm ex_pagetool
+	rm pagetool

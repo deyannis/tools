@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 unsigned int	addr_to_uint(char *);
-void		print_help(void);
+void		usage(void);
 int		check_args(int);
 
 
@@ -31,7 +31,7 @@ main(int argc, char **argv)
 				addr = strdup(optarg);
 				break;
 			case 'h':
-				print_help();
+				usage();
 				return 0;
 				break;
 			default:
@@ -42,8 +42,9 @@ main(int argc, char **argv)
 		}
 
 	printf("Address:\t0x%X\n", addr_to_uint(addr));
+	printf("Uint Value:\t%u\n", addr_to_uint(addr));
         printf("Page Mask:\t0x%X\n", addr_to_uint(addr) & ~page_mask);
-        printf("Page:\t\t0x%X\n",addr_to_uint(addr) & page_mask);
+        printf("Page:\t\t0x%X\n", addr_to_uint(addr) & page_mask);
 
 	return 0;
 }
@@ -77,11 +78,10 @@ addr_to_uint(char * s)
 
 
 void 
-print_help(void)
+usage(void)
 {
-	printf("Usage:\n");
-	printf("\t-a <address>\n");
-	printf("\t-h\n\n");
+	printf("Usage:\tpagetool [-a] [ADDRESS]\n");
+	printf("\t\t [-h]\n\n");
 	printf("Options\n");
 	printf("\t-a,\t<address>\taddress to be calculated.\n");
 	printf("\t\t\t\te.g.: 0xFF8C364A\n");
