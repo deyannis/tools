@@ -1,0 +1,11 @@
+Page and Page Mask calculation tool.
+Takes as input a string representing the address in hex format.
+Returns the Page it belongs to and the Page mask.
+
+It is case and "0x" prefix insensitive.
+
+Example of use:
+	$ ./ex_pagetool -a 0xFF8C364A
+	  Address:	0xFF8C364A
+	  Page Mask:	0x64A
+	  Page:		0xFF8C3000
