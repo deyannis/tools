@@ -3,7 +3,7 @@
 #include <string.h>
 #include <getopt.h>
 
-unsigned int	addr_to_int(char *);
+unsigned int	addr_to_uint(char *);
 void		print_help(void);
 int		check_args(int);
 
@@ -38,15 +38,15 @@ main(int argc, char **argv)
 			}
 		}
 
-	printf("Address:\t0x%X\n", addr_to_int(addr));
-	printf("uint value:\t%u\n", addr_to_int(addr));
+	printf("Address:\t0x%X\n", addr_to_uint(addr));
+	printf("uint value:\t%u\n", addr_to_uint(addr));
 
 	return 0;
 }
 
 
 unsigned int
-addr_to_int(char * s)
+addr_to_uint(char * s)
 {
 	unsigned int result = 0;
 	int c ;
