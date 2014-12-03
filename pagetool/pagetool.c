@@ -24,15 +24,16 @@ main(int argc, char **argv)
 	char *addr;
 	int c;
 
-	if(!check_args(argc))
+	if (!check_args(argc))
 		return 0;
 
 	/* process arguments */
-	while(-1 != (c = getopt(argc, argv,
+	while (-1 != (c = getopt(argc, argv,
 		"a:"	/* address to be converted */
 		"h"	/* help */
-		))){
-		switch(c)
+		)))
+		{
+		switch (c)
 			{
 			case 'a':
 				addr = strdup(optarg);
@@ -62,18 +63,18 @@ addr_to_uint(char *s)
 	unsigned int result = 0;
 	int c ;
 
-	if(('0' == *s) && ('x' == *(s + 1)))
+	if (('0' == *s) && ('x' == *(s + 1)))
 		s += 2;
 
-	while(*s)
+	while (*s)
 		{
 		result = result << 4;
 
-		if(c = (*s - '0'), ((c >= 0) && (c <= 9)))
+		if (c = (*s - '0'), ((c >= 0) && (c <= 9)))
 			result |= c;
-		else if(c = (*s - 'A'), ((c >= 0) && (c <= 5)))
+		else if (c = (*s - 'A'), ((c >= 0) && (c <= 5)))
 			result |= (c + 10);
-		else if(c = (*s - 'a'), ((c >= 0) && (c <= 5)))
+		else if (c = (*s - 'a'), ((c >= 0) && (c <= 5)))
 			result |= (c + 10);
 		else break;
 
@@ -100,8 +101,8 @@ usage(void)
 int 
 check_args(int c)
 {
-	if(c == 1)
-                {
+	if (c == 1)
+		{
                 printf("Illegal argument %c\n", c);
                 printf("Use -h for help!\n");
                 return 0;
